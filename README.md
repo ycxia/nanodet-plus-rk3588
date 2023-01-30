@@ -1,8 +1,8 @@
-# rk3588-nanodetplus
+# rk3588 nanodet-plus npu2
 
-Deploy nanodet-plus model on rk3588
+Deploy nanodet-plus model on rk3588.
 
-1. Change some parameters for your model in include/postprocess.h. 
+1. Change parameters for your models in include/postprocess.h. 
 
    example: nanodet-EfficientNet-Lite2_512
    
@@ -19,3 +19,8 @@ Deploy nanodet-plus model on rk3588
 2. For speeding up postprocess, I used unsigmoid threshhold in postprocess.cc, because sigmoid function is time consuming. 
 
    line255 :  float unsigmod_conf_thresh = unsigmoid(conf_threshold);
+   
+   
+NOTE:  y = unsigmoid(x)      x' = sigmoid(y)
+
+      x and x' are incomplete equality.
