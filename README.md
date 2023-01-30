@@ -16,7 +16,14 @@ Deploy nanodet-plus model on rk3588.
     
     #define STRIDE_SIZE       4
     
-2. For speeding up postprocess, I used unsigmoid threshhold in postprocess.cc, because sigmoid function is time consuming. 
+2. usage:
+
+   ./build-linux_RK3588.sh
+   
+   ./install/rknn_nanodet_demo_Linux/rknn_nanodet_demo   nanodet-EfficientNet-Lite2_512.rknn   model/bus.jpg
+   
+    
+3. For speeding up postprocess, I used unsigmoid threshhold in postprocess.cc, because sigmoid function is time consuming. 
 
    line255 :  float unsigmod_conf_thresh = unsigmoid(conf_threshold);
    
